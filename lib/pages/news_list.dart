@@ -2,7 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:newsbuddy/viewmodels/newsArticleListViewmodel.dart';
 import 'package:provider/provider.dart';
 
-class NewsList extends StatelessWidget {
+class NewsList extends StatefulWidget {
+  @override
+  _NewsListState createState() => _NewsListState();
+}
+
+class _NewsListState extends State<NewsList> {
+
+  // when the page is created , init state is called
+  // and the news is populated
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<NewsArticleListViewmodel>(context, listen: false)
+        .populateList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<NewsArticleListViewmodel>(context);
@@ -12,6 +27,7 @@ class NewsList extends StatelessWidget {
         backgroundColor: Color.fromRGBO(23, 23, 23, 1),
         title: Text("News Buddy"),
       ),
+      // A list view for the body
       body: ListView.builder(
         itemBuilder: (context, index) {
           final article = vm.articles[index];
@@ -24,6 +40,8 @@ class NewsList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ClipRRect(
+                  // when image is not available
+                  // a placeholder is made
                   child: article.urlToImage == null
                       ? Image.asset("images/news-placeholder.png")
                       : Image.network(article.urlToImage),

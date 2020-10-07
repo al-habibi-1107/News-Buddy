@@ -11,12 +11,9 @@ class NewsArticleListViewmodel with ChangeNotifier {
 // an instance of the view model
   List<NewsArticleViewModel> articles = List<NewsArticleViewModel>();
 
-  NewsArticleListViewmodel(){
-    _populateList();
+  
 
-  }
-
-  void _populateList() async {
+  void populateList() async {
 // 1. fetch the top headlines using the webservice(http) in
 // the webservice class
     List<NewsArticle> newsArticle = await WebServices().fetchTopHeadlines();
