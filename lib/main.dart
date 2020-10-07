@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newsbuddy/viewmodels/newsArticleListViewmodel.dart';
+import 'package:provider/provider.dart';
+import 'package:newsbuddy/pages/news_list.dart';
 
 void main() {
   runApp(App());
@@ -7,15 +10,14 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "News Buddy",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("News Buddy"),
-        ),
-        body: Text("Daily news will be shown here"),
+      // Sets up a provider so that changes in NewsArticleViewmodel are 
+      // heard in the news list page
+      home: ChangeNotifierProvider(
+        create: (context) => NewsArticleListViewmodel(),
+        child: NewsList(),
       ),
     );
   }
