@@ -13,7 +13,7 @@ class NewsArticleListViewmodel with ChangeNotifier {
 
   
 
-  void populateList() async {
+  Future<void> populateList() async {
 // 1. fetch the top headlines using the webservice(http) in
 // the webservice class
     List<NewsArticle> newsArticle = await WebServices().fetchTopHeadlines();

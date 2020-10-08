@@ -8,7 +8,6 @@ class NewsList extends StatefulWidget {
 }
 
 class _NewsListState extends State<NewsList> {
-
   // when the page is created , init state is called
   // and the news is populated
   @override
