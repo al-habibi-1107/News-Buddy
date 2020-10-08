@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:newsbuddy/viewmodels/newsArticleListViewmodel.dart';
 import 'package:provider/provider.dart';
-import 'package:newsbuddy/pages/news_list.dart';
+
+import './viewmodels/newsArticleListViewmodel.dart';
+import './pages/news_list.dart';
+import './pages/news_info.dart';
 
 void main() {
   runApp(App());
@@ -19,6 +21,10 @@ class App extends StatelessWidget {
         create: (context) => NewsArticleListViewmodel(),
         child: NewsList(),
       ),
+      // Adding routes for navigation
+      routes: {
+        NewsInfo.routeName :(ctx)=> NewsInfo(),
+      },
     );
   }
 }

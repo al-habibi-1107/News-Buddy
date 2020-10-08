@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:newsbuddy/viewmodels/newsArticleListViewmodel.dart';
+import 'package:newsbuddy/viewmodels/newsArticleViewmodel.dart';
 import 'package:provider/provider.dart';
+
+import '../viewmodels/newsArticleListViewmodel.dart';
+import './news_info.dart';
 
 class NewsList extends StatefulWidget {
   @override
@@ -30,7 +33,7 @@ class _NewsListState extends State<NewsList> {
       body: ListView.builder(
         itemBuilder: (context, index) {
           final article = vm.articles[index];
-
+         
           return Container(
             width: device.width * 0.9,
             padding: EdgeInsets.symmetric(
@@ -38,13 +41,19 @@ class _NewsListState extends State<NewsList> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ClipRRect(
-                  // when image is not available
-                  // a placeholder is made
-                  child: article.urlToImage == null
-                      ? Image.asset("images/news-placeholder.png")
-                      : Image.network(article.urlToImage),
-                  borderRadius: BorderRadius.circular(5),
+                GestureDetector(
+                  onTap: () {
+                    
+                    Navigator.of(context).pushNamed(NewsInfo.routeName,arguments: article);
+                  },
+                  child: ClipRRect(
+                    // when image is not available
+                    // a placeholder is made
+                    child: article.urlToImage == null
+                        ? Image.asset("images/news-placeholder.png")
+                        : Image.network(article.urlToImage),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
