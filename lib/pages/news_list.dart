@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsbuddy/viewmodels/newsArticleViewmodel.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../viewmodels/newsArticleListViewmodel.dart';
 import './news_info.dart';
@@ -58,7 +58,7 @@ class _NewsListState extends State<NewsList> {
                 SizedBox(height: 5),
                 Text(
                   article.title,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: GoogleFonts.ubuntu(fontWeight: FontWeight.w600),
                 )
               ],
             ),
