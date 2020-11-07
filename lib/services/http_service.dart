@@ -16,7 +16,7 @@ class WebServices {
     final apiKey= api.apiKey;
 
     // url of the json
-    final url = "http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=$apiKey";
+    final url = "http://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com,cnbc.com&language=en&apiKey=$apiKey";
 
     // await for the response
     final response = await http.get(url);
