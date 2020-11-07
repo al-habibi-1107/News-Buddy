@@ -1,16 +1,19 @@
 # newsbuddy
 
-A new Flutter project.
+A Real-Time news App made with flutter and dart that allows you to:
 
-## Getting Started
+- Get Latest News from top websites
+- Get a breif news headline
+- The Source website of the news
 
-This project is a starting point for a Flutter application.
+## Functional Description:
+The app uses the newsAPI to get data of the current news in JSON format
+parses it and displays it in a interactive form
 
-A few resources to get you started if this is your first Flutter project:
+### Packages Used:
+- http
+- provider
+- url_launcher
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Screenshots from the app:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
